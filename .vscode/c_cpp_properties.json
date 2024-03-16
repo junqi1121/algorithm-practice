@@ -10,10 +10,10 @@
                 "UNICODE",
                 "_UNICODE"
             ],
+            "compilerPath": "D:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/g++.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "windows-clang-x64",
-            "compilerPath": "D:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/g++.exe"
+            "intelliSenseMode": "gcc-x64"
         }
     ],
     "version": 4
