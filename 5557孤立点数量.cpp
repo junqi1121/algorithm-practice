@@ -21,6 +21,8 @@ int find(int x)
 int main()
 {
     cin >> n >> m;
+
+    // 并查集的初始化
     for (int i = 1; i <= n; i++)
     {
         p[i] = i;
