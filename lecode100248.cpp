@@ -1,3 +1,5 @@
+#define sz(a) (int)a.size()
+
 class Solution
 {
 public:
