@@ -33,7 +33,9 @@ int n, m;
 int h[N], ne[N], e[N], idx;                                                 // 链式前向星
 int p[N];                                                                   // 并查集的数组
 int dx[] = {0, -1, 0, 1, 1, 1, -1, -1}, dy[] = {1, 0, -1, 0, 1, -1, 1, -1}; // 方向数组
-
+int primes[N], cnt;
+int euler[N];
+bool st[N];
 void add(int a, int b)
 {
     e[idx] = b;
@@ -50,7 +52,30 @@ int find(int x)
 int main()
 {
     gkd;
-    cin >> n >> m;
-    cout << gcd(n, m);
+    cin >> n;
+    euler[1] = 1;
+    for (int i = 2; i <= n; i++)
+    {
+        if (!st[i])
+        {
+            primes[cnt++] = i;
+            euler[i] = i - 1;
+        }
+        for (int j = 0; primes[j] <= n / i; j++)
+        {
+            st[primes[j] * i] = true;
+
+            if (i % primes[j] == 0)
+            {
+                euler[i * primes[j]] = euler[i] * primes[j];
+                break;
+            }
+            euler[i * primes[j]] = euler[i] * (primes[j] - 1);
+        }
+    }
+    for (int i = 1; i <= n; i++)
+    {
+        cout << euler[i] << endl;
+    }
     return 0;
 }
