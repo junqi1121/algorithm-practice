@@ -29,7 +29,7 @@ typedef unsigned long long ull;
 typedef pair<int, int> PII;
 const int N = 1e5 + 10, M = 1e5 + 10;
 int n, m;
-
+int T;
 int h[N], ne[N], e[N], idx;                                                 // 链式前向星
 int p[N];                                                                   // 并查集的数组
 int dx[] = {0, -1, 0, 1, 1, 1, -1, -1}, dy[] = {1, 0, -1, 0, 1, -1, 1, -1}; // 方向数组
@@ -46,11 +46,18 @@ int find(int x)
         p[x] = find(p[x]);
     return p[x];
 }
-
+void solve()
+{
+    cin >> m >> n;
+}
 int main()
 {
     gkd;
-    cin >> n >> m;
-    cout << gcd(n, m);
+    cin >> T;
+    //     T=1;
+    while (T--)
+    {
+        solve();
+    }
     return 0;
 }
