@@ -6,6 +6,10 @@
         "initializer_list": "cpp",
         "utility": "cpp",
         "cstring": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "compare": "cpp",
+        "functional": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp"
     }
 }
