@@ -35,6 +35,9 @@ void dfs(int u, int father)
         }
     }
 }
+
+// 倍增的二进制思想，先跳最大的那个分量
+// 所以会倒着枚举高度！
 int lca(int x, int y)
 {
     // 保证x的层数不小于y的层数

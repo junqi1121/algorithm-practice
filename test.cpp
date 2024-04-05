@@ -1,17 +1,11 @@
 #include <iostream>
 using namespace std;
-const int N = 1e5 + 10;
-int n;
 int main()
 {
-    cin>>n;
-    long long sum=0;
-    for(int i = 1;i<=n;i++)
-    {
-        long long x;
-        cin>>x;
-        sum+=x;
-    }
-    cout<<n*(n+1)/2-sum;
+    int a = 0;
+    int b = 0;
+    cin >> a >> b;
+    cout << hex << a + b; // hex转十六进制,dec转十进制
+
     return 0;
 }
