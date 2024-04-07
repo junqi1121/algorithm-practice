@@ -4,9 +4,11 @@
 #include <vector>
 using namespace std;
 const int N = 1e5 + 10, M = 1e5 + 10;
+
 int n, m;
 long long a;
 int son[32 * N][2], idx;
+
 int main()
 {
     cin >> n;
