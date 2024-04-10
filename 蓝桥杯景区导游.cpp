@@ -8,15 +8,15 @@ typedef unsigned long long ull;
 const int N = 1e5 + 10, M = 2 * N, K = 1e5 + 10;
 int n, k;
 int a[N];
-int tem[K];
-int h[N], e[M], ne[M], w[M], idx;
-int son[N][32], dep[N], dist[N];
-
+ll tem[K];
+int h[N], e[M], ne[M], idx;
+int son[N][32], dep[N];
+ll dist[N], w[M];
 void dfs(int u, int fa)
 {
     son[u][0] = fa;
     dep[u] = dep[fa] + 1;
-    for (int i = 30; i >= 1; i--)
+    for (int i = 1; i <= 30; i++)
     {
         son[u][i] = son[son[u][i - 1]][i - 1];
     }
@@ -25,7 +25,6 @@ void dfs(int u, int fa)
         if (e[i] != fa)
         {
             dist[e[i]] = dist[u] + w[i];
-            // cout << e[i] << ' ' << w[i] << ' ' << dist[e[i]] << endl;
             dfs(e[i], u);
         }
     }
@@ -38,7 +37,7 @@ void add(int a, int b, int ww)
     ne[idx] = h[a];
     h[a] = idx++;
 }
-int get_lca(int x, int y)
+int lca(int x, int y)
 {
     if (dep[x] < dep[y])
         swap(x, y);
@@ -55,10 +54,17 @@ int get_lca(int x, int y)
     // 跳到lca的下一层
     for (int i = 30; i >= 0; i--)
     {
-        if (dep[son[x][i]] != dep[son[y][i]])
+        if (son[x][i] != son[y][i])
             x = son[x][i], y = son[y][i];
     }
     return son[x][0];
+}
+ll get_distance(int a, int b)
+{
+    if (a == 0 || b == 0)
+        return 0;
+    int p = lca(a, b);
+    return dist[a] + dist[b] - 2 * dist[p];
 }
 int main()
 {
@@ -79,30 +85,16 @@ int main()
 
     ll sum = 0;
     // 这里算出原先的总长度
-    int pre = a[1];
     for (int i = 2; i <= k; i++)
     {
-        int lca = get_lca(pre, a[i]);
-        // cout << lca << ' ' << dist[pre] << endl;
-        tem[i] = dist[pre] + dist[a[i]] - 2 * dist[lca];
+        tem[i] = get_distance(a[i], a[i - 1]);
         sum += tem[i];
-        pre = a[i];
     }
     //  1-2-3 ....i-i+1....
     for (int i = 1; i <= k; i++)
     {
-        if (i == 1)
-        {
-            cout << sum - tem[2] << ' ';
-            continue;
-        }
-        if (i == k)
-        {
-            cout << sum - tem[k];
-            continue;
-        }
-        int lca = get_lca(a[i - 1], a[i + 1]);
-        cout << sum - tem[i] - tem[i + 1] + dist[a[i - 1]] + dist[a[i + 1]] - 2 * dist[lca] << ' ';
+        ll d = get_distance(a[i - 1], a[i + 1]);
+        cout << sum - tem[i] - tem[i + 1] + d << ' ';
     }
 
     return 0;
