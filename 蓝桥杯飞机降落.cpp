@@ -11,22 +11,25 @@ bool dfs(int x, int y, int tt)
     // 这架飞机序号为x，第y架降落，可以从t后开始降落
     if (y == n)
     {
-        return tt >= t[x] && tt <= t[x] + d[x];
+        return tt <= t[x] + d[x];
     }
-    if (tt >= t[x] && tt <= t[x] + d[x])
+    if (tt <= t[x] + d[x])
     {
-        st[x] = 1;
+        // st[x] = 1;
         for (int i = 1; i <= n; i++)
         {
             if (!st[i])
             {
                 st[i] = 1;
-                if (dfs(i, y + 1, tt + l[x]))
+                int start = max(tt, t[i]);
+
+                if (dfs(i, y + 1, start + l[x]))
                     return true;
+
                 st[i] = 0;
             }
         }
-    }
+        }
     return false;
 }
 void solve()
@@ -38,7 +41,7 @@ void solve()
     for (int i = 1; i <= n; i++)
     {
         st[i] = 1;
-        if (dfs(i, 1, 0))
+        if (dfs(i, 1, t[i]))
         {
             puts("YES");
             return;
