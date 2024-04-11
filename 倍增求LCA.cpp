@@ -44,7 +44,7 @@ int lca(int x, int y)
     if (dep[x] < dep[y])
         swap(x, y);
 
-    // 首先跳到同一层
+    // 首先跳到同一层  此处判断深度
     for (int i = 19; i >= 0; i--)
         if (dep[fa[x][i]] >= dep[y])
             x = fa[x][i];
@@ -52,7 +52,7 @@ int lca(int x, int y)
     if (x == y)
         return y;
 
-    // 再跳到lca的下一层
+    // 再跳到lca的下一层  此处判断是否相同
     for (int i = 19; i >= 0; i--)
         if (fa[x][i] != fa[y][i])
             x = fa[x][i], y = fa[y][i];
