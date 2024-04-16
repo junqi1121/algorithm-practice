@@ -7,6 +7,7 @@
 #include<queue>
 #include<unordered_map>
 #include<unordered_set>
+#include <set>
 #define inf 0x3f3f3f3f
 #define endl '\n' 
 #define fi first
@@ -21,7 +22,19 @@ const int N = 1e5+10,M=1e6+10;
 int n,m;
 void solve()
 {
-	
+    set<int> ha;
+    for (int i = 1; i <= 10; i++)
+        ha.insert(i);
+    for (auto x : ha)
+        cout << x << endl;
+
+    cout << "=================" << endl;
+    // for (auto it = ha.end(); it != ha.begin(); it--)
+    // for (auto it = ha.begin(); it != ha.end(); it++)
+    for (auto it = ha.rbegin(); it != ha.rend(); it++)
+    {
+        cout << *it << endl;
+    }
 }
 int main()
 {
