@@ -1,3 +1,7 @@
+// 最长公共子序列，转换成最长上升子序列
+
+// 然后最长上升子序列有 n logn 的解法！
+
 #include <iostream>
 #include <algorithm>
 #include <cstring>
