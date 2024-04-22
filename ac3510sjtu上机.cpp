@@ -27,7 +27,6 @@ inline void solve()
 
     // 现在也就变成了从b中找单增的序列有几个
     // 想到了转换，但是又不会做上升子序列了QAQ          有O(nlogn)的做法，是二分+贪心的做法！
-    // memset(f, 0, sizeof f);
 
     f[1] = b[1];
     int len = 1;
