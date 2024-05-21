@@ -1,3 +1,4 @@
+//  归并排序求逆序对!
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -24,22 +25,22 @@ void merge_sort(int l, int r)
     while (i <= mid && j <= r)
     {
         if (a[i] <= a[j])
-            b[idx++] = a[i];
+            b[idx++] = a[i++];
         else
         {
             int len = mid - i + 1;
             ret += len;
             ans[a[j]] += len;
-            b[idx++] = a[j];
+            b[idx++] = a[j++];
         }
     }
     while (i <= mid)
     {
-        b[idx++] = a[i];
+        b[idx++] = a[i++];
     }
     while (j <= r)
     {
-        b[idx++] = a[i];
+        b[idx++] = a[j++];
     }
     for (int i = l; i <= r; i++)
     {
@@ -66,6 +67,7 @@ int main()
 {
     ios::sync_with_stdio(0);
     cin.tie(0);
+    cout.tie(0);
     int T = 1;
     // cin>>T;
     while (T--)

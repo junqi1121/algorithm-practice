@@ -27,7 +27,6 @@ inline void solve()
 
     // 现在也就变成了从b中找单增的序列有几个
     // 想到了转换，但是又不会做上升子序列了QAQ          有O(nlogn)的做法，是二分+贪心的做法！
-
     f[1] = b[1];
     int len = 1;
     for (int i = 2; i <= n; i++)
@@ -35,7 +34,6 @@ inline void solve()
         if (b[i] == inf)
             continue;
         // 此处代表做的映射，如果没有出现过，那么就不需要去看这个数了！
-
         if (b[i] > f[len])
         {
             // cout<<i<<' '<<a[i]<<' '<<f[len]<<' '<<len<<endl;

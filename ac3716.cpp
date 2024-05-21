@@ -3,22 +3,15 @@
 #include <algorithm>
 using namespace std;
 string a;
-bool islow(char x)
-{
-    return x >= 'a' && x <= 'z';
-}
 int main()
 {
     while (cin >> a)
     {
-        for (int i = 0, j = 0; i < a.size(); i++)
+        for (auto &x : a)
         {
-            if (!islow(a[i]))
-            {
-                cout << '_';
-                a[i] = a[i] - 'A' + 'a';
-            }
-            cout << a[i];
+            if (!islower(x))
+                cout << '_', x = x - 'A' + 'a';
+            cout << x;
         }
         cout << endl;
     }
