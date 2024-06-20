@@ -1,4 +1,5 @@
-
+// https:// codeforces.com/contest/1926/problem/G
+// 很好的树形dp训练！
 #include <iostream>
 #include <algorithm>
 #include <cstring>
